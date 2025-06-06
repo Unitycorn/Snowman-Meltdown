@@ -57,3 +57,7 @@ def play_game():
     if mistakes == 3:
         display_game_state(mistakes, secret_word, guessed_letters)
         print("Game Over, your snowman melted!")
+    play_again = input("\nWould you like to play again? (y/n): ").lower()
+    if play_again == "y":
+        print("\n")
+        play_game()
