@@ -1,3 +1,5 @@
+from curses.ascii import isalpha
+
 from ascii_art import STAGES
 import random
 
@@ -44,6 +46,9 @@ def play_game():
             break
         display_game_state(mistakes, secret_word, guessed_letters)
         guess = input("Guess a letter: ").lower()
+        if len(guess) != 1 or not isalpha(guess):
+            print("\nERROR: Invalid input.")
+            continue
         if guess in secret_word and guess not in guessed_letters:
             guessed_letters.append(guess)
         else:
