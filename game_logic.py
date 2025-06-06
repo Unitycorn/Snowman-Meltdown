@@ -1,5 +1,4 @@
 from curses.ascii import isalpha
-
 from ascii_art import STAGES
 import random
 
@@ -8,6 +7,10 @@ WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 
 def is_word_found(word, answer):
+    """
+    Makes two sets of characters and compares them. If they are
+    equal, the word was found and the game ends
+    """
     unique_letters_in_secret_word = sorted(set(word))
     unique_letters_in_answer = sorted(set(answer))
     if unique_letters_in_secret_word == unique_letters_in_answer:
@@ -16,9 +19,12 @@ def is_word_found(word, answer):
 
 
 def display_game_state(mistakes, secret_word, guessed_letters):
-    # Display the snowman stage for the current number of mistakes.
+    """
+    Displays the snowman stage for the current number of mistakes.
+    Also displays a partial version of the secret word, depending on
+    how many letters were found
+    """
     print(STAGES[mistakes])
-    # Build a display version of the secret word.
     display_word = ""
     for letter in secret_word:
         if letter in guessed_letters:
@@ -35,6 +41,12 @@ def get_random_word():
 
 
 def play_game():
+    """
+    The main logic. If the word was found, the game ends.
+    Otherwise, the game continues until 4 mistakes were made.
+    Printing appropriate messages if won or lost and asking to play again.
+    ALso checks user input for a single, alphabetical character
+    """
     secret_word = get_random_word()
     guessed_letters = []
     mistakes = 0
@@ -51,9 +63,10 @@ def play_game():
             continue
         if guess in secret_word and guess not in guessed_letters:
             guessed_letters.append(guess)
+            print("\nYou guessed correct:", guess)
         else:
             mistakes += 1
-        print("You guessed:", guess)
+            print("\nYour guess was wrong:", guess)
     if mistakes == 4:
         display_game_state(mistakes, secret_word, guessed_letters)
         print("Game Over, your snowman melted!")
