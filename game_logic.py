@@ -40,7 +40,7 @@ def play_game():
     mistakes = 0
 
     print("Welcome to Snowman Meltdown!")
-    while mistakes < 3:
+    while mistakes < 4:
         if is_word_found(secret_word, guessed_letters):
             print(f"\nYou guessed the word '{secret_word}', congratulations!")
             break
@@ -54,7 +54,7 @@ def play_game():
         else:
             mistakes += 1
         print("You guessed:", guess)
-    if mistakes == 3:
+    if mistakes == 4:
         display_game_state(mistakes, secret_word, guessed_letters)
         print("Game Over, your snowman melted!")
     play_again = input("\nWould you like to play again? (y/n): ").lower()

@@ -4,7 +4,7 @@ STAGES = [
      """
       ___  
      /___\\ 
-     (o o) 
+     (o<o) 
      ( : ) 
      ( : ) 
      """,
@@ -12,16 +12,22 @@ STAGES = [
      """
       ___  
      /___\\ 
-     (o o) 
+     (o<o) 
      ( : ) 
      """,
      # Stage 2: Only the head remains
      """
       ___  
      /___\\ 
+     (o<o) 
+     """,
+     # Stage 3: Nose fell off
+     """
+      ___  
+     /___\\ 
      (o o) 
      """,
-     # Stage 3: Snowman completely melted
+     # Stage 4: Snowman completely melted
      """
       ___  
      /___\\ 
